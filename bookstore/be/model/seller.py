@@ -183,53 +183,53 @@ class Seller(db_conn.DBConn):
             return 530, "{}".format(str(e)), "None"
         return 200, "ok", all_store_orders
 
-    def user_id_exist(self, user_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            return False
+    # def user_id_exist(self, user_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         return False
 
-    def store_id_exist(self, store_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM user_store WHERE store_id = %s", (store_id,))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            return False
+    # def store_id_exist(self, store_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM user_store WHERE store_id = %s", (store_id,))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         return False
 
-    def book_id_exist(self, store_id: str, book_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM stores WHERE store_id = %s AND book_id = %s", (store_id, book_id))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            return False
+    # def book_id_exist(self, store_id: str, book_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM stores WHERE store_id = %s AND book_id = %s", (store_id, book_id))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         return False
 
-    def order_id_exist(self, order_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM new_orders WHERE order_id = %s", (order_id,))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            return False
+    # def order_id_exist(self, order_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM new_orders WHERE order_id = %s", (order_id,))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         return False
 
-    def order_is_paid(self, order_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT is_paid FROM new_orders WHERE order_id = %s", (order_id,))
-                result = cursor.fetchone()
+    # def order_is_paid(self, order_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT is_paid FROM new_orders WHERE order_id = %s", (order_id,))
+    #             result = cursor.fetchone()
 
-                return result and (result[0] == "true")
-        except Exception as e:
-            return False
+    #             return result and result[0]
+    #     except Exception as e:
+    #         return False
 
-    def order_is_shipped(self, order_id: str) -> bool:
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT is_shipped FROM new_orders WHERE order_id = %s", (order_id,))
-                result = cursor.fetchone()
-                return result and (result[0] == "true")
-        except Exception as e:
-            return False
+    # def order_is_shipped(self, order_id: str) -> bool:
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT is_shipped FROM new_orders WHERE order_id = %s", (order_id,))
+    #             result = cursor.fetchone()
+    #             return result and result[0]
+    #     except Exception as e:
+    #         return False

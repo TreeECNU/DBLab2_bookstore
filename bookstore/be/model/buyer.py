@@ -7,6 +7,9 @@ from be.model import error
 from datetime import datetime, timedelta
 import schedule
 import time
+from psycopg2.extras import RealDictCursor
+
+
 
 class Buyer(db_conn.DBConn):
     # 订单状态映射
@@ -22,23 +25,23 @@ class Buyer(db_conn.DBConn):
     def __init__(self):
         super().__init__()  # 初始化父类的数据库连接
     
-    def user_id_exist(self, user_id):
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            logging.error(f"Error checking user_id_exist: {e}")
-            return False
+    # def user_id_exist(self, user_id):
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         logging.error(f"Error checking user_id_exist: {e}")
+    #         return False
 
-    def store_id_exist(self, store_id):
-        try:
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM user_store WHERE store_id = %s", (store_id,))
-                return cursor.fetchone() is not None
-        except Exception as e:
-            logging.error(f"Error checking store_id_exist: {e}")
-            return False
+    # def store_id_exist(self, store_id):
+    #     try:
+    #         with self.conn.cursor() as cursor:
+    #             cursor.execute("SELECT * FROM user_store WHERE store_id = %s", (store_id,))
+    #             return cursor.fetchone() is not None
+    #     except Exception as e:
+    #         logging.error(f"Error checking store_id_exist: {e}")
+    #         return False
 
     def new_order(self, user_id: str, store_id: str, id_and_count: [(str, int)]) -> (int, str, str):
         order_id = ""
@@ -130,7 +133,7 @@ class Buyer(db_conn.DBConn):
                 
 
             # 检查是否已经付款
-            if order[3] == "true":
+            if order[3]:
                 return error.error_order_is_paid(order_id)
 
             # 计算订单总价
@@ -191,11 +194,11 @@ class Buyer(db_conn.DBConn):
                 return error.error_authorization_fail()
             
             # 检查是否已经付款
-            if order[3] == "false":
+            if not order[3]:
                 return error.error_not_be_paid(order_id)
 
             # 检查是否已确认收货
-            if order[5] == "true":
+            if order[5]:
                 return error.error_order_is_confirmed(order_id)
 
             buyer_id = order[1]
@@ -351,7 +354,7 @@ class Buyer(db_conn.DBConn):
                 return error.error_invalid_order_id(order_id)
 
             # 检查订单是否已经支付
-            if order[3] == "true":
+            if order[3]:
                 return error.error_cannot_be_canceled(order_id)
 
             # 取消订单，更新订单信息
@@ -390,20 +393,21 @@ class Buyer(db_conn.DBConn):
             now = datetime.utcnow()
 
             # 查找所有未支付的订单
-            with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM new_orders WHERE is_paid = %s", ("false",))
+            with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
+                cursor.execute("SELECT * FROM new_orders WHERE is_paid = %s", (False,))
                 pending_orders = cursor.fetchall()
 
             for order in pending_orders:
-                # 确保 order 字典中存在 "created_time" 键
-                if "created_time" in order:
-                    created_time = order[9]
+                created_time_str = order["created_time"]
+                created_time = datetime.strptime(created_time_str, "%Y-%m-%d %H:%M:%S.%f")
+
+                if created_time is not None:
                     time_diff = abs(now - created_time)
 
                     # 超时时间为5秒，检查订单是否已经超时
                     if time_diff > timedelta(seconds=5):
                         # 取消订单
-                        order_id = order[0]
+                        order_id = order["order_id"]
                         with self.conn.cursor() as cursor:
                             cursor.execute("""
                                 UPDATE new_orders 
@@ -422,7 +426,7 @@ class Buyer(db_conn.DBConn):
                                     UPDATE stores 
                                     SET stock_level = stock_level + %s 
                                     WHERE store_id = %s AND book_id = %s
-                                """, (count, order[1], book_id))
+                                """, (count, order["store_id"], book_id))
 
             self.conn.commit()
         

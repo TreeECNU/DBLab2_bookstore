@@ -85,7 +85,7 @@ class BookDB:
             book.tags = row[15]
 
             # 从 MongoDB 获取图片数据
-            mongo_book = self.collection.find_one({'_id': book.id})
+            mongo_book = self.collection.find_one({'id': book.id})
             if mongo_book:
                 picture_binary = mongo_book.get('picture')
                 if picture_binary:

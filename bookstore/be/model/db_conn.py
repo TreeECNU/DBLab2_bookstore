@@ -51,7 +51,7 @@ class DBConn:
             result = cur.fetchone()
             return result[0] if result else False
 
-    def close(self):
-        # 关闭数据库连接
-        if self.conn:
-            self.conn.close()
+    # def close(self):
+    #     # 关闭数据库连接
+    #     if self.conn:
+    #         self.conn.close()

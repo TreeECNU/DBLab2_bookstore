@@ -43,7 +43,7 @@ class Store:
                 cur.execute(
                     sql.SQL(
                         "CREATE TABLE IF NOT EXISTS new_orders( "
-                        "order_id TEXT PRIMARY KEY, user_id TEXT, store_id TEXT, is_paid TEXT, is_shipped TEXT, is_received TEXT, order_completed TEXT, status TEXT, created_time TEXT)"
+                        "order_id TEXT PRIMARY KEY, user_id TEXT, store_id TEXT, is_paid BOOLEAN, is_shipped BOOLEAN, is_received BOOLEAN, order_completed BOOLEAN, status TEXT, created_time TEXT)"
                     )
                 )
 
