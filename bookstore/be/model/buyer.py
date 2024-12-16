@@ -177,7 +177,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT * FROM new_orders WHERE order_id = %s", (order_id,))
                 order = cursor.fetchone()
 
-            buyer_id = order[2]
+            buyer_id = order[1]
 
             # 检查用户身份
             if buyer_id != user_id:
@@ -187,19 +187,19 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT * FROM users WHERE user_id = %s", (buyer_id,))
                 user = cursor.fetchone()
 
-            if user is None or user[2] != password:
+            if user is None or user[1] != password:
                 return error.error_authorization_fail()
             
             # 检查是否已经付款
-            if not order[4]:
+            if order[3] == "false":
                 return error.error_not_be_paid(order_id)
 
             # 检查是否已确认收货
-            if order[5]:
+            if order[5] == "true":
                 return error.error_order_is_confirmed(order_id)
 
-            buyer_id = order[2]
-            store_id = order[1]
+            buyer_id = order[1]
+            store_id = order[2]
 
             with self.conn.cursor() as cursor:
                 cursor.execute("SELECT user_id FROM user_store WHERE store_id = %s", (store_id,))
@@ -282,7 +282,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
                 user = cursor.fetchone()
 
-            if user is None or user[2] != password:
+            if user is None or user[1] != password:
                 return error.error_authorization_fail() + ("None",)
 
             # 查找订单
@@ -294,7 +294,7 @@ class Buyer(db_conn.DBConn):
                 return error.error_invalid_order_id(order_id) + ("None",)
 
             # 返回订单状态
-            order_status = self.ORDER_STATUS[order[8]]
+            order_status = self.ORDER_STATUS[order[7]]
 
             return 200, "ok", order_status
         except Exception as e:
@@ -312,7 +312,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
                 user = cursor.fetchone()
 
-            if user is None or user[2] != password:
+            if user is None or user[1] != password:
                 return error.error_authorization_fail() + ("None",)
 
             # 查找用户的所有订单
@@ -339,7 +339,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
                 user = cursor.fetchone()
 
-            if user is None or user[2] != password:
+            if user is None or user[1] != password:
                 return error.error_authorization_fail()
 
             # 查找订单
@@ -351,7 +351,7 @@ class Buyer(db_conn.DBConn):
                 return error.error_invalid_order_id(order_id)
 
             # 检查订单是否已经支付
-            if order[4]:
+            if order[3] == "true":
                 return error.error_cannot_be_canceled(order_id)
 
             # 取消订单，更新订单信息
@@ -391,7 +391,7 @@ class Buyer(db_conn.DBConn):
 
             # 查找所有未支付的订单
             with self.conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM new_orders WHERE is_paid = %s", (False,))
+                cursor.execute("SELECT * FROM new_orders WHERE is_paid = %s", ("false",))
                 pending_orders = cursor.fetchall()
 
             for order in pending_orders:

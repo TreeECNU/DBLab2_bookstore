@@ -220,7 +220,8 @@ class Seller(db_conn.DBConn):
             with self.conn.cursor() as cursor:
                 cursor.execute("SELECT is_paid FROM new_orders WHERE order_id = %s", (order_id,))
                 result = cursor.fetchone()
-                return result and result[0]
+
+                return result and (result[0] == "true")
         except Exception as e:
             return False
 
@@ -229,6 +230,6 @@ class Seller(db_conn.DBConn):
             with self.conn.cursor() as cursor:
                 cursor.execute("SELECT is_shipped FROM new_orders WHERE order_id = %s", (order_id,))
                 result = cursor.fetchone()
-                return result and result[0]
+                return result and (result[0] == "true")
         except Exception as e:
             return False
