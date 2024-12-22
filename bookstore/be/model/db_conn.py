@@ -1,5 +1,6 @@
 import psycopg2
 from psycopg2 import sql
+from pymongo import MongoClient
 
 class DBConn:
     def __init__(self):
@@ -12,6 +13,9 @@ class DBConn:
             port="5432"
         )
         self.conn.autocommit = True  # 自动提交事务
+        self.mongo_client = MongoClient('mongodb://localhost:27017/')
+        self.mongo_db = self.mongo_client['bookstore_pic']
+        self.mongo_collection = self.mongo_db['books']
 
     def user_id_exist(self, user_id):
         # 查询users表中是否存在给定user_id

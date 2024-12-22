@@ -6,7 +6,7 @@ class TestSearchBooks:
     @pytest.fixture(autouse=True)
     def setup(self):
         # 初始化 bookstore_searcher 和相关数据
-        self.store_id = "test_add_books_store_id_848aa78c-887a-11ef-89e5-2e81db39535e"
+        self.store_id = "store_s_1_1_2e4f0ecc-bb74-11ef-a2d3-14755b837f79"
         self.keyword = "美丽心灵"
         self.searcher = book_search.BookSearcher(conf.URL)
         yield
@@ -25,7 +25,7 @@ class TestSearchBooks:
         # 测试不存在的书籍，搜索是在book数据库中进行，搜索范围是部分，期望返回 523 错误码
         code = self.searcher.search_books(
             keyword="nonexistent_book",
-            search_scope="title tag",
+            search_scope="title tags",
             search_in_store=False,
             store_id=self.store_id
         )
@@ -92,7 +92,7 @@ class TestSearchBooks:
         # 测试在存在的store_id中搜索书籍，搜索范围是部分
         code = self.searcher.search_books(
             keyword=self.keyword,
-            search_scope="title tag",
+            search_scope="title tags",
             search_in_store=True,
             store_id=self.store_id
         )

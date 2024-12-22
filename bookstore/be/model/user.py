@@ -4,12 +4,16 @@ import logging
 import psycopg2
 from psycopg2 import sql
 from be.model import error
+from pymongo import MongoClient
 
 # PostgreSQL 连接设置
 class DBConn:
     def __init__(self, host="localhost", port=5432, dbname="bookstore", user="postgres", password="2792636748"):
         self.conn = psycopg2.connect(host=host, port=port, dbname=dbname, user=user, password=password)
         self.cursor = self.conn.cursor()
+        self.mongo_client = MongoClient('mongodb://localhost:27017/')
+        self.mongo_db = self.mongo_client['bookstore_pic']
+        self.mongo_collection = self.mongo_db['books']
 
     def __del__(self):
         self.cursor.close()

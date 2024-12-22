@@ -2959,3 +2959,182 @@ INFO:werkzeug:127.0.0.1 - - [16/Dec/2024 21:34:27] "POST /seller/query_all_store
 INFO:werkzeug:127.0.0.1 - - [16/Dec/2024 21:34:27] "POST /seller/query_all_store_orders HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [16/Dec/2024 21:34:27] "POST /seller/query_all_store_orders HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [16/Dec/2024 21:34:27] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 16, in search_books
+    code, results = manager.search_books(keyword, search_scope, search_in_store, store_id)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 25, in search_books
+    if not self.store_id_exist(store_id):
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 18, in store_id_exist
+    cur.execute(sql.SQL("SELECT 1 FROM store WHERE store_id = %s"), [store_id])
+psycopg2.errors.UndefinedTable: ´íÎó:  ¹ØÏµ "store" ²»´æÔÚ
+LINE 1: SELECT 1 FROM store WHERE store_id = 'non_existent_store_id'
+                      ^
+
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 16, in search_books
+    code, results = manager.search_books(keyword, search_scope, search_in_store, store_id)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 25, in search_books
+    if not self.store_id_exist(store_id):
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 18, in store_id_exist
+    cur.execute(sql.SQL("SELECT 1 FROM store WHERE store_id = %s"), [store_id])
+psycopg2.errors.UndefinedTable: ´íÎó:  ¹ØÏµ "store" ²»´æÔÚ
+LINE 1: SELECT 1 FROM store WHERE store_id = 'test_add_books_store_i...
+                      ^
+
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 16, in search_books
+    code, results = manager.search_books(keyword, search_scope, search_in_store, store_id)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 25, in search_books
+    if not self.store_id_exist(store_id):
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 18, in store_id_exist
+    cur.execute(sql.SQL("SELECT 1 FROM store WHERE store_id = %s"), [store_id])
+psycopg2.errors.UndefinedTable: ´íÎó:  ¹ØÏµ "store" ²»´æÔÚ
+LINE 1: SELECT 1 FROM store WHERE store_id = 'test_add_books_store_i...
+                      ^
+
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 16, in search_books
+    code, results = manager.search_books(keyword, search_scope, search_in_store, store_id)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 25, in search_books
+    if not self.store_id_exist(store_id):
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 18, in store_id_exist
+    cur.execute(sql.SQL("SELECT 1 FROM store WHERE store_id = %s"), [store_id])
+psycopg2.errors.UndefinedTable: ´íÎó:  ¹ØÏµ "store" ²»´æÔÚ
+LINE 1: SELECT 1 FROM store WHERE store_id = 'test_add_books_store_i...
+                      ^
+
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:26:15] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:28:49] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:29] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:29] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:29] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:29] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:33:30] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:22] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:22] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:22] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:35:23] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:26] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:27] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:43:27] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 16:46:02] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 525 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:07:50] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 525 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 530 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:10:01] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 525 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2024 17:26:48] "GET /shutdown HTTP/1.1" 200 -

@@ -19,7 +19,7 @@ postgres_cursor = postgres_conn.cursor()
 # 创建表（如果不存在）
 postgres_cursor.execute("""
 CREATE TABLE IF NOT EXISTS books (
-    id SERIAL PRIMARY KEY,
+    id TEXT PRIMARY KEY,
     title TEXT,
     author TEXT,
     publisher TEXT,

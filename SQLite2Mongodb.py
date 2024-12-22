@@ -8,7 +8,7 @@ sqlite_cursor = sqlite_conn.cursor()
 
 # 连接到MongoDB数据库
 mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_db = mongo_client['bookstore_pic']  # 替换为你的数据库名称
+mongo_db = mongo_client['bookstore_pic']
 mongo_collection = mongo_db['books']
 
 # 从SQLite中查询book表的所有记录
