@@ -4,8 +4,6 @@ from flask import jsonify
 from be.model.buyer import Buyer
 
 bp_buyer = Blueprint("buyer", __name__, url_prefix="/buyer")
-
-
 @bp_buyer.route("/new_order", methods=["POST"])
 def new_order():
     user_id: str = request.json.get("user_id")
@@ -86,3 +84,17 @@ def auto_cancel_expired_orders():
     code, message = b.auto_cancel_expired_orders()
     return jsonify({"message": message, "code": code})
 
+@bp_buyer.route('/check_stock_level', methods=['POST'])
+def check_stock_level():
+    store_id = request.json.get("store_id")
+    book_id = request.json.get("book_id")
+    b = Buyer()
+    code, stock_level, message = b.check_stock_level(store_id, book_id)
+    return jsonify({"stock_level": stock_level, "message": message, "code": code})
+
+@bp_buyer.route('/check_order_count', methods=['POST'])
+def check_order_count():
+    user_id = request.json.get("user_id")
+    b = Buyer()
+    code, order_count, message = b.check_order_count(user_id)
+    return jsonify({"order_count": order_count, "message": message, "code": code})

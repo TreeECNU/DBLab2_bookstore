@@ -2,7 +2,7 @@ import time
 import pytest
 from fe.access import auth
 from fe import conf
-from be.model.store import Store  # 假设 Store 中管理 MongoDB 连接
+from be.model.store import Store
 
 class TestRegister:
     @pytest.fixture(autouse=True)

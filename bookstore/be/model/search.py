@@ -1,6 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 from be.model import error
+from pymongo import MongoClient
 
 class BookStoreSearcher:
     def __init__(self, dbname='bookstore', user='postgres', password='2792636748', host='localhost', port='5432'):
@@ -12,6 +13,9 @@ class BookStoreSearcher:
             port=port
         )
         self.conn.autocommit = True  # 自动提交事务
+        self.mongo_client = MongoClient('mongodb://localhost:27017/')
+        self.mongo_db = self.mongo_client['bookstore_pic']
+        self.mongo_collection = self.mongo_db['books']
 
     def store_id_exist(self, store_id):
         with self.conn.cursor() as cur:

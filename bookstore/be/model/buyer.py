@@ -9,8 +9,6 @@ import schedule
 import time
 from psycopg2.extras import RealDictCursor
 
-
-
 class Buyer(db_conn.DBConn):
     # 订单状态映射
     ORDER_STATUS = {
@@ -25,24 +23,6 @@ class Buyer(db_conn.DBConn):
     def __init__(self):
         super().__init__()  # 初始化父类的数据库连接
     
-    # def user_id_exist(self, user_id):
-    #     try:
-    #         with self.conn.cursor() as cursor:
-    #             cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))
-    #             return cursor.fetchone() is not None
-    #     except Exception as e:
-    #         logging.error(f"Error checking user_id_exist: {e}")
-    #         return False
-
-    # def store_id_exist(self, store_id):
-    #     try:
-    #         with self.conn.cursor() as cursor:
-    #             cursor.execute("SELECT * FROM user_store WHERE store_id = %s", (store_id,))
-    #             return cursor.fetchone() is not None
-    #     except Exception as e:
-    #         logging.error(f"Error checking store_id_exist: {e}")
-    #         return False
-
     def new_order(self, user_id: str, store_id: str, id_and_count: [(str, int)]) -> (int, str, str):
         order_id = ""
         try:
@@ -436,3 +416,24 @@ class Buyer(db_conn.DBConn):
             return 530, "not"
         
         return 200, "ok"
+    
+    def check_stock_level(self, store_id: str, book_id: str):
+        try:
+            with self.conn.cursor() as cursor:
+                cursor.execute("SELECT stock_level FROM stores WHERE store_id = %s AND book_id = %s", (store_id, book_id))
+                stock_level = cursor.fetchone()[0]
+            return 200, stock_level, "ok"
+        except Exception as e:
+            logging.error(f"Error checking stock level: {e}")
+            self.conn.rollback()
+            return 530, -1, "{}".format(str(e))
+    def check_order_count(self, user_id: str):
+        try:
+            with self.conn.cursor() as cursor:
+                cursor.execute("SELECT COUNT(*) FROM new_orders WHERE user_id = %s", (user_id,))
+                order_count = cursor.fetchone()[0]
+                return 200, order_count, "ok"
+        except Exception as e:
+            logging.error(f"Error checking order count: {e}")
+            self.conn.rollback()
+            return 530, -1, "{}".format(str(e))
