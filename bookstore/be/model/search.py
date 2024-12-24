@@ -17,6 +17,44 @@ class BookStoreSearcher:
         self.mongo_db = self.mongo_client['bookstore_pic']
         self.mongo_collection = self.mongo_db['books']
 
+        # 创建索引
+        self._create_indexes()
+
+    def _create_indexes(self):
+        """
+        创建必要的索引以优化查询性能
+        """
+        with self.conn.cursor() as cur:
+            # 在 stores 表的 store_id 列上创建索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_stores_store_id ON stores(store_id);
+            """)
+
+            # 在 books 表的 id 列上创建索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_books_id ON books(id);
+            """)
+
+            # 在 books 表的 title 列上创建全文搜索索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_books_title_fts ON books USING gin(to_tsvector('english', title));
+            """)
+
+            # 在 books 表的 tags 列上创建全文搜索索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_books_tags_fts ON books USING gin(to_tsvector('english', tags));
+            """)
+
+            # 在 books 表的 content 列上创建全文搜索索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_books_content_fts ON books USING gin(to_tsvector('english', content));
+            """)
+
+            # 在 books 表的 book_intro 列上创建全文搜索索引
+            cur.execute("""
+                CREATE INDEX IF NOT EXISTS idx_books_book_intro_fts ON books USING gin(to_tsvector('english', book_intro));
+            """)
+
     def store_id_exist(self, store_id):
         with self.conn.cursor() as cur:
             cur.execute(sql.SQL("SELECT 1 FROM stores WHERE store_id = %s"), [store_id])
@@ -103,11 +141,11 @@ class BookStoreSearcher:
         if self.conn:
             self.conn.close()
 
-# bss = BookStoreSearcher()
-# code = self.searcher.search_books(
-        #     keyword=self.keyword,
-        #     search_scope="title tags",
-        #     search_in_store=False
-        # )
-# code, results = bss.search_books("美丽心灵", "all", False)
-# print(code)
+# # 示例用法
+# if __name__ == "__main__":
+#     bss = BookStoreSearcher()
+#     code, results = bss.search_books("美丽心灵", "all", False)
+#     print(code)
+#     if code == 200:
+#         print(results)
+#     bss.close()

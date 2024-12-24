@@ -3283,3 +3283,14 @@ INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 01:21:45] "POST /buyer/new_order HTTP/1
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 01:21:45] "POST /buyer/check_stock_level HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 01:21:45] "POST /buyer/check_order_count HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 01:21:45] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 525 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "GET /shutdown HTTP/1.1" 200 -
