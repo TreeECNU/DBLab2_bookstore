@@ -19,7 +19,6 @@ class BookStoreSearcher:
 
         # 创建索引
         self._create_indexes()
-# pragma: no cover
 
     def _create_indexes(self):
         """

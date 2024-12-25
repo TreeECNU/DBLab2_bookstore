@@ -29,7 +29,6 @@ def be_run():
     this_path = os.path.dirname(__file__)
     parent_path = os.path.dirname(this_path)
     log_file = os.path.join(parent_path, "app.log")
-    # init_database(db_url="mongodb://localhost:27017/", db_name="bookstore")
     init_database()
 
     logging.basicConfig(filename=log_file, level=logging.ERROR)

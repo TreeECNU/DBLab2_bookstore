@@ -21,7 +21,7 @@ class Buyer(db_conn.DBConn):
     }
 
     def __init__(self):
-        super().__init__()  # 初始化父类的数据库连接
+        super().__init__()
     
     def new_order(self, user_id: str, store_id: str, id_and_count: [(str, int)]) -> (int, str, str):
         order_id = ""

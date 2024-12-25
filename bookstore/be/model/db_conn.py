@@ -4,7 +4,6 @@ from pymongo import MongoClient
 
 class DBConn:
     def __init__(self):
-        # 连接PostgreSQL
         self.conn = psycopg2.connect(
             dbname="bookstore",
             user="postgres",
@@ -55,7 +54,7 @@ class DBConn:
             result = cur.fetchone()
             return result[0] if result else False
 
-    # def close(self):
-    #     # 关闭数据库连接
-    #     if self.conn:
-    #         self.conn.close()
+    def close(self): # pragma: no cover
+        # 关闭数据库连接
+        if self.conn:
+            self.conn.close()

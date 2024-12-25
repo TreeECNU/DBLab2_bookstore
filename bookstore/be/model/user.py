@@ -6,7 +6,6 @@ from psycopg2 import sql
 from be.model import error
 from pymongo import MongoClient
 
-# PostgreSQL 连接设置
 class DBConn:
     def __init__(self, host="localhost", port=5432, dbname="bookstore", user="postgres", password="2792636748"):
         self.conn = psycopg2.connect(host=host, port=port, dbname=dbname, user=user, password=password)
@@ -65,7 +64,6 @@ class User(DBConn):
 
     def register(self, user_id: str, password: str):
         try:
-            # 检查是否已经存在相同的 user_id
             self.cursor.execute(sql.SQL("SELECT * FROM users WHERE user_id = %s"), (user_id,))
             existing_user = self.cursor.fetchone()
             if existing_user:

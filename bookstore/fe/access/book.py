@@ -33,12 +33,10 @@ class Book:
 
 class BookDB:
     def __init__(self, large: bool = False):
-        # MongoDB 连接
-        self.client = MongoClient('mongodb://localhost:27017/')  # 连接到MongoDB
-        self.db = self.client['bookstore_pic']  # 数据库名称
-        self.collection = self.db['books']  # 集合名称
+        self.client = MongoClient('mongodb://localhost:27017/')
+        self.db = self.client['bookstore_pic']
+        self.collection = self.db['books']
 
-        # PostgreSQL 连接
         self.pg_conn = psycopg2.connect(
             host='localhost',
             database='bookstore',
