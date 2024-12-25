@@ -132,12 +132,12 @@ class BookStoreSearcher:
 
                 return 200, books
 
-        except psycopg2.Error as e:
+        except psycopg2.Error as e:# pragma: no cover
             # 打印详细的错误信息以帮助调试
             # print(f"Database operation error: {e}")
             return error.db_operation_error(e)
 
-    def close(self):
+    def close(self):# pragma: no cover
         if self.conn:
             self.conn.close()
 

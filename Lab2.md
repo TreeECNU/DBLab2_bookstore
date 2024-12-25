@@ -3416,13 +3416,278 @@ class BookSearcher:
 至此，所有功能已经实现完成。
 
 ## 全文索引【提升性能】
+在搜索的时候，使用了如下全文索引：
+```Python
+# 在 books 表的 title 列上创建全文搜索索引
+cur.execute("""
+    CREATE INDEX IF NOT EXISTS idx_books_title_fts ON books USING gin(to_tsvector('english', title));
+            """)
 
+# 在 books 表的 tags 列上创建全文搜索索引
+cur.execute("""
+    CREATE INDEX IF NOT EXISTS idx_books_tags_fts ON books USING gin(to_tsvector('english', tags));
+            """)
+
+# 在 books 表的 content 列上创建全文搜索索引
+cur.execute("""
+    CREATE INDEX IF NOT EXISTS idx_books_content_fts ON books USING gin(to_tsvector('english', content));
+            """)
+
+# 在 books 表的 book_intro 列上创建全文搜索索引
+cur.execute("""
+    CREATE INDEX IF NOT EXISTS idx_books_book_intro_fts ON books USING gin(to_tsvector('english', book_intro));
+            """)
+```
+### PostgreSQL中的全文索引
+-  使用`GIN`或者`GIST`索引来创建全文索引。
+-  支持多种语言的分词器（如英语、中文等），可以通过`zhparser`包来支持中文。（这个包更适合安装在linux环境）
+
+### 创建索引的流程
+-  获取原始文档数据
+-  对文档进行分析并进行分词
+-  存档存入数据库，根据分词建立索引
+-  查询时根据关键词，通过索引查询到索引指向的数据
+
+### 流程图示如下
+![alt text](全文索引构建过程.png)
+
+### PostgreSQL数据库使用全文索引的优势
+-  在全文索引上，特别是对于大规模数据集时，MongoDB数据库的数据库是不如PostgreSQL数据库的。
+-  PostgreSQL的全文索引支持更复杂的查询语法，适合需要高级搜索功能的场景。
 
 ## 事务处理
+### 事务处理主要有两个目的：  
+-  为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下也能保持一致性的方法。  
+-  当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。  
 
+### 事务的属性（ACID）
+-  原子性：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。
+-  一致性：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。要满足完整性约束。
+-  隔离性：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。
+-  持久性：已被提交的事务对数据库的修改应该永久保存在数据库中。
+
+### 事务控制命令
+使用下面的命令来控制事务：
+-  BEGIN TRANSACTION：开始一个事务。
+-  COMMIT：事务确认提交。
+-  ROLLBACK：事务回滚。
+
+注意：事务控制命令只与INSERT、UPDATE和DELETE一起使用。它们不能再创建表或删除表时使用，因为这些操作在数据库中是自动提交的。
+
+### 本次实验中所使用的事务控制
+以buyer.py/new_orders为例，本次实验中其他函数都使用了类似的事务控制：
+```Python
+    def new_order(self, user_id: str, store_id: str, id_and_count: [(str, int)]) -> (int, str, str):
+        order_id = ""
+        try:
+            if not self.user_id_exist(user_id):
+                return error.error_non_exist_user_id(user_id) + (order_id,)
+            if not self.store_id_exist(store_id):
+                return error.error_non_exist_store_id(store_id) + (order_id,)
+            
+            # 生成订单ID
+            uid = f"{user_id}_{store_id}_{uuid.uuid1()}"
+
+            # 遍历每本书籍及其数量
+            for book_id, count in id_and_count:
+                # 查找书籍库存
+                with self.conn.cursor() as cursor:
+                    cursor.execute("""
+                        SELECT stock_level, book_info 
+                        FROM stores 
+                        WHERE store_id = %s AND book_id = %s
+                    """, (store_id, book_id))
+                    store_item = cursor.fetchone()
+
+                if store_item is None:
+                    return error.error_non_exist_book_id(book_id) + (order_id,)
+                
+                stock_level, book_info_str = store_item
+                book_info = json.loads(book_info_str)
+                price = book_info.get("price")
+
+                if stock_level < count:
+                    return error.error_stock_level_low(book_id) + (order_id,)
+                
+                # 更新库存
+                with self.conn.cursor() as cursor:
+                    cursor.execute("""
+                        UPDATE stores 
+                        SET stock_level = stock_level - %s 
+                        WHERE store_id = %s AND book_id = %s AND stock_level >= %s
+                    """, (count, store_id, book_id, count))
+                    if cursor.rowcount == 0:
+                        return error.error_stock_level_low(book_id) + (order_id,)
+                
+                # 插入订单详情
+                with self.conn.cursor() as cursor:
+                    cursor.execute("""
+                        INSERT INTO new_order_details (order_id, book_id, count, price) 
+                        VALUES (%s, %s, %s, %s)
+                    """, (uid, book_id, count, price))
+            
+            # 插入订单，新增 is_shipped 和 is_received 初始为 False
+            with self.conn.cursor() as cursor:
+                cursor.execute("""
+                    INSERT INTO new_orders (order_id, store_id, user_id, is_paid, is_shipped, is_received, order_completed, status, created_time) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (uid, store_id, user_id, False, False, False, False, "pending", datetime.utcnow()))
+            
+            self.conn.commit()
+            order_id = uid
+        except Exception as e:
+            logging.error(f"Error creating new order: {e}")
+            self.conn.rollback()
+            return 530, "{}".format(str(e)), ""
+
+        return 200, "ok", order_id
+```
+1. 其中开始事务（BEGIN TRANSACTION）在这里没有显示地表示出来，因为数据库会默认在每次提交或回滚后自动开启一个新事务。  
+2. 提交（Commit）：在所有操作成功完成之后，会通过`self.conn.commit()`提交事务，确保所有更改永久保存到数据库。  
+3. 回滚（Rollback）：如果在执行过程中发生异常，会通过`self.conn.rollback()`回滚事务，撤销所有未提交的更改，以保证数据的一致性。  
+
+### 对上述事务控制的测试
+为了进一步测试实验中采取的事务处理的有效性，于是专门写了一个测试用例，用于测试在以下两种情况中事务控制是否能正常进行：  
+1. 在并发条件下，5个用户同时创建购买同一本书的订单，最后检测库存是否正确以及订单数量是否正确。  
+2. 在并发条件下，5个用户同时创建购买同一本书的订单，但是其中1个用户进入了错误的店铺（店铺不存在），最后检测库存是否正确以及订单数量是否正确。【主要用于测试错误处理】  
+
+#### 测试代码如下：
+```Python
+import pytest
+import concurrent.futures
+import psycopg2
+import uuid
+import json
+import logging
+from fe.access.order_api import OrderAPI
+from datetime import datetime, timedelta
+from fe.access.auth import Auth
+from fe import conf
+from fe.access import seller, book
+
+# 设置日志级别
+logging.basicConfig(level=logging.DEBUG)
+
+class TestBuyer:
+    @pytest.fixture(autouse=True)
+    def pre_run_initialization(self):
+        self.auth = Auth(conf.URL)
+
+        # 创建测试用户
+        self.user_id = f"test_user_{uuid.uuid1()}"
+        self.password = "test_password"
+        code = self.auth.register(self.user_id, self.password)
+        assert code == 200
+
+        self.order_api = OrderAPI(conf.URL, self.user_id, self.password)
+
+        self.seller = seller.Seller(conf.URL, self.user_id, self.password)
+
+        # 创建测试商店
+        self.store_id = f"test_store_{uuid.uuid1()}"
+        code = self.seller.create_store(self.store_id)
+        assert code == 200
+
+        # 添加测试书籍
+        self.book_id = "1000067"
+        book_db = book.BookDB(conf.Use_Large_DB)
+        self.books = book_db.get_book_info(0, 2)
+        self.book_json_str = self.books[0]
+        self.stock_level = 10
+        code = self.seller.add_book(self.store_id, self.stock_level, self.book_json_str)
+        assert code == 200
+
+        yield
+
+    def test_concurrent_new_order(self):
+
+        # 创建多个订单
+        num_orders = 5
+        id_and_count = [(self.book_id, 2)]
+
+        def create_order(_):
+            order_id = ""
+            try:
+                code, order_id = self.order_api.new_order(self.store_id, id_and_count)
+                assert code == 200
+            except Exception as e:
+                logging.error(f"Error creating order: {e}")
+            return order_id
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_orders) as executor:
+            order_ids = list(executor.map(create_order, range(num_orders)))
+
+        # 检查库存是否正确
+        code, now_stock_level, _ = self.order_api.check_stock_level(self.store_id, self.book_id)
+        expected_stock_level = self.stock_level - num_orders * id_and_count[0][1]
+        assert code == 200
+        assert now_stock_level == expected_stock_level
+
+        # 检查订单数量是否正确
+        code, order_count, _ = self.order_api.check_order_count(self.user_id)
+        assert code == 200
+        assert order_count == num_orders
+
+    def test_concurrent_new_order_with_error_rollback(self):
+        # 创建多个订单
+        num_orders = 5
+        id_and_count = [(self.book_id, 2)]
+
+        def create_order(index):
+            order_id = ""
+            try:
+                if index == 2:  # 故意让第三个订单创建失败
+                    error_store_id = "error_store_id"
+                    code, order_id = self.order_api.new_order(error_store_id, id_and_count)
+                    assert code != 200
+                else:
+                    code, order_id = self.order_api.new_order(self.store_id, id_and_count)
+                    assert code == 200
+                
+            except Exception as e:
+                logging.error(f"Error creating order: {e}")
+            return order_id
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_orders) as executor:
+            order_ids = list(executor.map(create_order, range(num_orders)))
+
+        # 检查库存是否正确
+        code, now_stock_level, _ = self.order_api.check_stock_level(self.store_id, self.book_id)
+        expected_stock_level = self.stock_level - (num_orders - 1) * id_and_count[0][1]  # 只有4个订单成功
+        assert code == 200
+        assert now_stock_level == expected_stock_level
+
+        # 检查订单数量是否正确
+        code, order_count, _ = self.order_api.check_order_count(self.user_id)
+        assert code == 200
+        assert order_count == num_orders - 1  # 只有4个订单成功
+```
+
+#### 解读如下：
+- **测试类 `TestBuyer`**：
+  - 初始化过程中创建了一个测试用户，并通过该用户创建了一个测试商店并添加了一本书籍到库存中。
+
+- **并发创建订单测试 `test_concurrent_new_order`**：
+  - 测试多个线程同时创建订单的情况。
+  - 创建了5个订单，每个订单包含2本相同的书。
+  - 使用 `ThreadPoolExecutor` 来并发执行订单创建操作。
+  - 最后检查库存是否减少了预期的数量（10 - 5 * 2 = 0），并且确认订单总数为5个。
+
+- **带错误回滚的并发创建订单测试 `test_concurrent_new_order_with_error_rollback`**：
+  - 类似于上一个测试，但在创建第三个订单时故意传入错误的商店ID以触发异常。
+  - 预期结果是只有4个订单成功创建，库存减少8本（10 - 4 * 2 = 2），订单总数为4个。
+
+总结来说，这段代码主要测试了在高并发情况下系统能否正确处理订单创建请求，并且验证了当某些请求失败时系统的回滚机制是否正常工作。  
+
+**测试结果是正确通过的，会集中在下面的测试结果中展示。**
 
 ## 测试结果
-
+测试结果展示如下：  
+### 所有测试均已通过
+![alt text](result_1.png)
+### 覆盖率达到98%
+![alt text](result_2.png)
 
 ## 版本管理
+本次代码都使用github进行同步，使用git进行版本管理，展示如下：  
 

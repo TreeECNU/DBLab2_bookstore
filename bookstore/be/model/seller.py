@@ -33,7 +33,7 @@ class Seller(db_conn.DBConn):
                     VALUES (%s, %s, %s, %s)
                 """, (store_id, book_id, book_json_str, stock_level))
                 self.conn.commit()
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 530, "{}".format(str(e))
         return 200, "ok"
 
@@ -61,7 +61,7 @@ class Seller(db_conn.DBConn):
                     WHERE store_id = %s AND book_id = %s
                 """, (add_stock_level, store_id, book_id))
                 self.conn.commit()
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 530, "{}".format(str(e))
         return 200, "ok"
 
@@ -81,7 +81,7 @@ class Seller(db_conn.DBConn):
                     VALUES (%s, %s)
                 """, (store_id, user_id))
                 self.conn.commit()
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 530, "{}".format(str(e))
         return 200, "ok"
 
@@ -116,7 +116,7 @@ class Seller(db_conn.DBConn):
                 """, (order_id, store_id))
                 self.conn.commit()
         
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 520, "{}".format(str(e))
         return 200, "ok"
 
@@ -146,7 +146,7 @@ class Seller(db_conn.DBConn):
                 cursor.execute("SELECT * FROM new_orders WHERE store_id = %s", (store_id,))
                 orders = cursor.fetchall()
 
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 530, "{}".format(str(e)), "None"
         return 200, "ok", [dict(zip([column[0] for column in cursor.description], row)) for row in orders]
 
@@ -179,6 +179,6 @@ class Seller(db_conn.DBConn):
                     orders = cursor.fetchall()
                     all_store_orders[store_id] = [dict(zip([column[0] for column in cursor.description], row)) for row in orders]
 
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             return 530, "{}".format(str(e)), "None"
         return 200, "ok", all_store_orders

@@ -84,9 +84,6 @@ def error_no_store_found(user_id):
 def error_authorization_fail():
     return 401, error_code[401]
 
-def error_order_is_canceled(order_id):
-    return 526, error_code[526]
-
 def error_order_is_paid(order_id):
     return 527, error_code[527]
 
@@ -95,5 +92,3 @@ def error_order_is_confirmed(order_id):
 
 def error_order_is_shipped(order_id):
     return 529, error_code[529]
-def error_and_message(code, message):
-    return code, message

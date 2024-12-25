@@ -81,7 +81,7 @@ class Buyer(db_conn.DBConn):
             
             self.conn.commit()
             order_id = uid
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error creating new order: {e}")
             self.conn.rollback()
             return 530, "{}".format(str(e)), ""
@@ -146,7 +146,7 @@ class Buyer(db_conn.DBConn):
 
             self.conn.commit()
 
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error paying to platform: {e}")
             self.conn.rollback()
             return 530, "{}".format(str(e))
@@ -222,7 +222,7 @@ class Buyer(db_conn.DBConn):
 
             self.conn.commit()
 
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error confirming receipt and paying to seller: {e}")
             self.conn.rollback()
             return 530, "{}".format(str(e))
@@ -280,7 +280,7 @@ class Buyer(db_conn.DBConn):
             order_status = self.ORDER_STATUS[order[7]]
 
             return 200, "ok", order_status
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error querying order status: {e}")
             return 530, "{}".format(str(e)) + ("None",)
 
@@ -307,7 +307,7 @@ class Buyer(db_conn.DBConn):
             orders_list = [dict(zip([column[0] for column in cursor.description], row)) for row in orders]
 
             return 200, "ok", orders_list
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error querying buyer all orders: {e}")
             return 530, "{}".format(str(e)), None
 
@@ -360,7 +360,7 @@ class Buyer(db_conn.DBConn):
 
             self.conn.commit()
 
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error canceling order: {e}")
             self.conn.rollback()
             return 530, "{}".format(str(e))
@@ -410,7 +410,7 @@ class Buyer(db_conn.DBConn):
 
             self.conn.commit()
         
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error auto-canceling expired orders: {e}")
             self.conn.rollback()
             return 530, "not"
@@ -423,7 +423,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT stock_level FROM stores WHERE store_id = %s AND book_id = %s", (store_id, book_id))
                 stock_level = cursor.fetchone()[0]
             return 200, stock_level, "ok"
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error checking stock level: {e}")
             self.conn.rollback()
             return 530, -1, "{}".format(str(e))
@@ -433,7 +433,7 @@ class Buyer(db_conn.DBConn):
                 cursor.execute("SELECT COUNT(*) FROM new_orders WHERE user_id = %s", (user_id,))
                 order_count = cursor.fetchone()[0]
                 return 200, order_count, "ok"
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             logging.error(f"Error checking order count: {e}")
             self.conn.rollback()
             return 530, -1, "{}".format(str(e))

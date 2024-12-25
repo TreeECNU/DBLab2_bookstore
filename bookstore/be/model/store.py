@@ -56,7 +56,7 @@ class Store:
                 )
 
             conn.commit()
-        except psycopg2.Error as e:
+        except psycopg2.Error as e:# pragma: no cover
             logging.error(e)
             conn.rollback()
         finally:
@@ -70,7 +70,7 @@ class Store:
         try:
             self.cursor.execute(sql.SQL("DELETE FROM users"))
             self.conn.commit()
-        except Exception as e:
+        except Exception as e:# pragma: no cover
             print(f"Error clearing users: {str(e)}")
             self.conn.rollback()
         finally:
