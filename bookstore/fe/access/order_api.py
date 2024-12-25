@@ -3,9 +3,10 @@ from urllib.parse import urljoin
 from fe.access.auth import Auth
 
 class OrderAPI:
-    def __init__(self, url_prefix, user_id):
+    def __init__(self, url_prefix, user_id, password):
         self.url_prefix = urljoin(url_prefix, "buyer/")
         self.user_id = user_id
+        self.password = password
         self.token = ""
 
     def new_order(self, store_id: str, book_id_and_count: [(str, int)]) -> (int, str):

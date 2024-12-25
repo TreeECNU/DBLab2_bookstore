@@ -24,7 +24,7 @@ class TestBuyer:
         code = self.auth.register(self.user_id, self.password)
         assert code == 200
 
-        self.order_api = OrderAPI(conf.URL, self.user_id)
+        self.order_api = OrderAPI(conf.URL, self.user_id, self.password)
 
         self.seller = seller.Seller(conf.URL, self.user_id, self.password)
 
@@ -73,36 +73,36 @@ class TestBuyer:
         assert code == 200
         assert order_count == num_orders
 
-    # def test_concurrent_cancel_order(self, setup_teardown):
-    #     order_api, user_id, password, store_id, book_id, stock_level, conn, cursor = setup_teardown
+    def test_concurrent_new_order_with_error_rollback(self):
+        # 创建多个订单
+        num_orders = 5
+        id_and_count = [(self.book_id, 2)]
 
-    #     # 创建多个订单
-    #     num_orders = 5
-    #     id_and_count = [(book_id, 2)]
+        def create_order(index):
+            order_id = ""
+            try:
+                if index == 2:  # 故意让第三个订单创建失败
+                    error_store_id = "error_store_id"
+                    code, order_id = self.order_api.new_order(error_store_id, id_and_count)
+                    assert code != 200
+                else:
+                    code, order_id = self.order_api.new_order(self.store_id, id_and_count)
+                    assert code == 200
+                
+            except Exception as e:
+                logging.error(f"Error creating order: {e}")
+            return order_id
 
-    #     order_ids = []
-    #     for _ in range(num_orders):
-    #         code, order_id = order_api.new_order(store_id, id_and_count)
-    #         assert code == 200
-    #         order_ids.append(order_id)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=num_orders) as executor:
+            order_ids = list(executor.map(create_order, range(num_orders)))
 
-    #     def cancel_order(order_id):
-    #         try:
-    #             code, _ = order_api.cancel_order(order_id)
-    #             assert code == 200
-    #         except Exception as e:
-    #             logging.error(f"Error canceling order: {e}")
+        # 检查库存是否正确
+        code, now_stock_level, _ = self.order_api.check_stock_level(self.store_id, self.book_id)
+        expected_stock_level = self.stock_level - (num_orders - 1) * id_and_count[0][1]  # 只有4个订单成功
+        assert code == 200
+        assert now_stock_level == expected_stock_level
 
-    #     with concurrent.futures.ThreadPoolExecutor(max_workers=num_orders) as executor:
-    #         list(executor.map(cancel_order, order_ids))
-
-    #     # 检查库存是否恢复
-    #     cursor.execute("SELECT stock_level FROM stores WHERE store_id = %s AND book_id = %s", (store_id, book_id))
-    #     stock_level = cursor.fetchone()[0]
-    #     assert stock_level == stock_level
-
-    #     # 检查订单状态是否为取消
-    #     for order_id in order_ids:
-    #         code, message, order_status = order_api.query_order_status(order_id)
-    #         assert code == 200
-    #         assert order_status == "canceled"
+        # 检查订单数量是否正确
+        code, order_count, _ = self.order_api.check_order_count(self.user_id)
+        assert code == 200
+        assert order_count == num_orders - 1  # 只有4个订单成功

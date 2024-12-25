@@ -3294,3 +3294,247 @@ INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "[35m[1mPOST /search/search
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "POST /search/search_books HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [24/Dec/2024 19:33:14] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:10:59] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /seller/add_book HTTP/1.1" 200 -
+ERROR:root:Error creating order: Intentional error for rollback test
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:11:00] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:49] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:49] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:49] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:50] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:19:51] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:16] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/new_order HTTP/1.1" 200 -
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:24:17] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:43] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:44] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:45] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:46] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:46] "POST /buyer/new_order HTTP/1.1" 200 -
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:46] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:25:46] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:32] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:33] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/new_order HTTP/1.1" 200 -
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:27:34] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:14] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:15] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/new_order HTTP/1.1" 200 -
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:28:16] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:36] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:36] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:36] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:36] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:37] "[35m[1mPOST /buyer/new_order HTTP/1.1[0m" 513 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/check_order_count HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /auth/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /seller/create_store HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /seller/add_book HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:38] "POST /buyer/new_order HTTP/1.1" 200 -
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were given
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "POST /buyer/check_stock_level HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "POST /buyer/query_order_status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "GET /shutdown HTTP/1.1" 200 -

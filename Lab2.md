@@ -107,7 +107,7 @@ Collection: books
 其中，主键为`user_id`。  
 
 ## ER图
-![alt text](图片1.png)
+![ER Diagram](ER_Diagram.png)
 其中，不同表的关系如下：  
 1. `new_orders`表和`users`、`stores`表都是**一对多**的关系，因为一个用户可以有很多订单，但是一个订单只能指向一个用户；一个商店可以有很多订单，但是一个订单只能属于一个商店。因此新建了`new_orders_detail`表，用于存储它们三者之间的关系，通过`user_id`和`store_id`作为外键关联。  
 2. `users`表和`stores`表是**一对多**的关系，因为一个用户可以拥有多个商店，但是一个商店只能属于一个用户。因此新建了`user_store`表，用于存储它们两者之间的关系，通过`user_id`和`store_id`作为外键关联。  
