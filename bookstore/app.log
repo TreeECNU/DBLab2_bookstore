@@ -3538,3 +3538,596 @@ ERROR:root:Error paying order: payment() takes 2 positional arguments but 4 were
 INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "POST /buyer/check_stock_level HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "POST /buyer/query_order_status HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 10:29:39] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.UndefinedObject: ´íÎó:  ÎÄ±¾ËÑÑ°ÅäÖÃ "chinese" ²»´æÔÚ
+LINE 2: ...dx_books_title_fts ON books USING gin(to_tsvector('chinese',...
+                                                             ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 11:05:51] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:49] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 52, in _create_indexes
+    """)
+psycopg2.errors.ProgramLimitExceeded: ´íÎó:  Ë÷ÒýÐÐ´óÐ¡7848³¬¹ýÁËË÷Òý"idx_books_content"µÄbtree°æ±¾4×î´óÖµ2704
+DETAIL:  Ë÷ÒýÐÐÒýÓÃ¹ØÏµ"books"ÖÐµÄÔª×é£¨12£¬2£©
+HINT:  Öµ´óÓÚ»º³åÒ³µÄ1/3£¬²»ÄÜ½¨Ë÷Òý.
+Çë¿¼ÂÇÕâ¸öÖµMD5¹þÏ£º¯ÊýË÷Òý,»òÕßÊ¹ÓÃÈ«ÎÄË÷Òý.
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:50] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:15:50] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+ERROR:be.serve:Exception on /search/search_books [POST]
+Traceback (most recent call last):
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 2051, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1501, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1499, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\27926\.conda\envs\DB_LAB_7\lib\site-packages\flask\app.py", line 1485, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\view\search.py", line 15, in search_books
+    manager = search.BookStoreSearcher()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 21, in __init__
+    self._create_indexes()
+  File "D:\DB_Lab\DBLab2_bookstore\bookstore\be\model\search.py", line 42, in _create_indexes
+    """)
+psycopg2.errors.SyntaxError: ´íÎó:  Óï·¨´íÎó ÔÚ "FULLTEXT" »ò¸½½üµÄ
+LINE 2:                 CREATE FULLTEXT INDEX IF NOT EXISTS idx_book...
+                               ^
+
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:20:02] "GET /shutdown HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 524 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 525 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "[35m[1mPOST /search/search_books HTTP/1.1[0m" 523 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "POST /search/search_books HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Dec/2024 15:31:54] "GET /shutdown HTTP/1.1" 200 -
