@@ -1,6 +1,6 @@
 # DBLab2_bookstore 实验报告
 ## 实验要求
-本次实验的整体要求和Lab1相同，
+本次实验的整体要求和Lab1相同，需要把其中的MongoDB数据库分离出来，将图片存到MongoDB数据库中，其他数据存到PostgreSQL数据库中。然后需要新增事务处理的相关功能，并编写相关函数进行测试。
 
 ## 简述从文档型数据库到关系型数据库的改动，以及改动的理由
 ### 改动之处
@@ -24,7 +24,7 @@ Collection: books
   book_intro: str
   content: str
   tags: str
-  picture: bytes
+  picture: blob
 ```
 根据实验手册的要求：核心数据使用关系型数据库（PostgreSQL 或 MySQL 数据库），blob 数据（如图片和大段的文字描述）可以分离出来存其它 NoSQL 数据库或文件系统。那么在查看了最原始的数据库中的数据类型，发现blob数据主要就是图片，那么我们将图片分离出来，存储在MongoDB数据库中，其余的数据都存储在PostgreSQL数据库中。为了方便两者的关联查找，通过`id`字段作为两个数据库的关联字段，方便进行联合查询等功能。  
 
